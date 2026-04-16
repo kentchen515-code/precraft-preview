@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>風格 — Precraft 緻作</title>
+    <meta name="description" content="Precraft 緻作的風格光譜。不是模板，是為你的品牌找到對的設計語言。">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           Precraft Styles Page
+           Inherits brand system from precraft-home.html
+           ============================================= */
+
+        :root {
+            --color-primary: #1B3A2F;
+            --color-primary-dark: #142D24;
+            --color-primary-light: #2A5443;
+            --color-accent: #B8956A;
+            --color-accent-light: #D4B896;
+            --color-bg: #F5F1E8;
+            --color-bg-alt: #EDE8DC;
+            --color-bg-white: #FFFFFF;
+            --color-text: #2B2B2B;
+            --color-text-light: #6B6B6B;
+            --color-text-muted: #999999;
+            --color-border: #E5DFD2;
+            --color-white: #FFFFFF;
+            --color-footer-bg: #111F19;
+
+            --font-display: 'Cormorant Garamond', serif;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Noto Sans TC', 'Inter', sans-serif;
+            --font-body-en: 'Inter', sans-serif;
+
+            --spacing-section: 120px;
+            --container-max-width: 1100px;
+            --container-padding: 24px;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-pill: 30px;
+            --shadow-sm: 0 2px 8px rgba(27, 58, 47, 0.06);
+            --shadow-md: 0 4px 20px rgba(27, 58, 47, 0.08);
+            --shadow-hover: 0 8px 30px rgba(27, 58, 47, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            background: var(--color-bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .section-label {
+            font-family: var(--font-body-en);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: 2px solid var(--color-primary);
+        }
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        .btn-outline-light {
+            background: transparent;
+            color: var(--color-bg);
+            border: 2px solid rgba(245, 241, 232, 0.4);
+        }
+        .btn-outline-light:hover {
+            background: rgba(245, 241, 232, 0.1);
+            border-color: var(--color-bg);
+        }
+        .btn-text {
+            background: transparent;
+            color: var(--color-primary);
+            border: none;
+            padding: 14px 0;
+            font-weight: 500;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .btn-text:hover { border-bottom-color: var(--color-primary); }
+
+
+        /* ===== HEADER ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            transition: var(--transition);
+        }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo { display: flex; align-items: baseline; gap: 10px; }
+        .logo-en {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--color-primary);
+            letter-spacing: 1px;
+        }
+        .logo-zh {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--color-text-light);
+            letter-spacing: 2px;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-menu a {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-text-light);
+            transition: var(--transition);
+        }
+        .nav-menu a:hover { color: var(--color-primary); }
+        .nav-menu a.active { color: var(--color-primary); font-weight: 500; }
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 10px 24px;
+            border-radius: var(--radius-pill);
+            font-weight: 500 !important;
+        }
+        .nav-cta:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-menu-toggle span { width: 24px; height: 2px; background: var(--color-primary); transition: var(--transition); }
+
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        .page-hero-en {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .page-hero-zh {
+            font-family: var(--font-body);
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 400;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+
+        /* ===== MANIFESTO ===== */
+        .manifesto {
+            padding: 0 0 var(--spacing-section);
+        }
+        .manifesto-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .manifesto h2 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 48px;
+        }
+        .manifesto p {
+            font-size: 18px;
+            line-height: 2.2;
+            color: var(--color-text);
+            margin-bottom: 40px;
+        }
+        .manifesto p:last-child { margin-bottom: 0; }
+        .manifesto strong {
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+        .manifesto .breath {
+            font-size: 15px;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+
+        /* ===== STYLES GRID ===== */
+        .styles-section {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg-white);
+        }
+        .styles-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+        .styles-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+        .styles-header p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .styles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .style-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            transition: var(--transition);
+        }
+        .style-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .style-visual {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Each style has its own visual identity */
+        .style-visual-lumiere {
+            background: linear-gradient(135deg, #8B1A2E 0%, #C9A84C 40%, #F9F6F0 100%);
+        }
+        .style-visual-pawcare {
+            background: linear-gradient(135deg, #F4A460 0%, #FFD9B3 40%, #FFF5EB 100%);
+        }
+        .style-visual-ironcore {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #555555 100%);
+        }
+        .style-visual-craftland {
+            background: linear-gradient(135deg, #5C4033 0%, #8B7355 40%, #D4C4A8 100%);
+        }
+
+        .style-visual-label {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+
+        .style-info {
+            padding: 32px;
+        }
+        .style-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .style-industry {
+            font-family: var(--font-body-en);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+        .style-info h3 {
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+        .style-name-en {
+            font-family: var(--font-body-en);
+            font-size: 13px;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+        .style-desc {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .style-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .style-keyword {
+            font-size: 12px;
+            color: var(--color-text-light);
+            background: var(--color-bg-alt);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .style-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+        .style-link:hover { border-bottom-color: var(--color-primary); }
+
+
+        .style-visual-aroma {
+            background: linear-gradient(135deg, #6B4423 0%, #D4A574 40%, #FAF3E7 100%);
+        }
+        .style-visual-studionoir {
+            background: linear-gradient(135deg, #0A0A0A 0%, #333333 50%, #F8F8F8 100%);
+        }
+
+        /* ===== MORE SECTION ===== */
+        .more-section {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg);
+        }
+        .more-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .more-inner h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--color-primary);
+            margin-bottom: 24px;
+        }
+        .more-inner p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 2;
+            margin-bottom: 16px;
+        }
+        .more-inner p:last-of-type { margin-bottom: 0; }
+
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 96px 0;
+            background: var(--color-primary);
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--color-bg);
+            margin-bottom: 32px;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-footer-bg);
+            color: var(--color-white);
+            padding: 60px 0 32px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.6;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .footer-links h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; opacity: 0.9; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: var(--transition); }
+        .footer-links a:hover { color: var(--color-accent); }
+        .social-links { display: flex; gap: 12px; margin-top: 16px; }
+        .social-icon {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .social-icon svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 2; }
+        .social-icon:hover { background: var(--color-accent); }
+        .social-icon:hover svg { stroke: var(--color-white); }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 13px;
+            opacity: 0.4;
+            line-height: 1.8;
+        }
+
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            :root { --spacing-section: 96px; }
+            .styles-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --spacing-section: 72px; --container-padding: 20px; }
+
+            .nav-menu {
+                position: fixed; top: 68px; left: -100%;
+                width: 100%; height: calc(100vh - 68px);
+                background: var(--color-bg);
+                flex-direction: column; padding: 40px;
+                transition: var(--transition); gap: 0; z-index: 999;
+            }
+            .nav-menu.active { left: 0; }
+            .nav-menu li { width: 100%; }
+            .nav-menu a { display: block; padding: 16px 0; font-size: 16px; border-bottom: 1px solid var(--color-border); }
+            .nav-cta { margin-top: 16px; text-align: center; display: block; }
+            .mobile-menu-toggle { display: flex; }
+
+            .page-hero { padding: 140px 0 72px; }
+
+            .manifesto p { font-size: 16px; line-height: 2; margin-bottom: 32px; }
+
+            .style-visual { height: 220px; }
+
+            .cta-buttons { flex-direction: column; align-items: center; }
+
+            .footer-content { text-align: center; }
+            .social-links { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            :root { --spacing-section: 56px; --container-padding: 16px; }
+            .page-hero { padding: 120px 0 56px; }
+            .style-visual { height: 180px; }
+            .style-visual-label { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- ===== HEADER ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo">
+                <span class="logo-en">Precraft</span>
+                <span class="logo-zh">緻作</span>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="選單">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#features">服務</a></li>
+                <li><a href="index.html#process">方法</a></li>
+                <li><a href="index.html#about">品牌故事</a></li>
+                <li><a href="styles.html" class="active">風格</a></li>
+                <li><a href="index.html#showcase">案例</a></li>
+                <li><a href="index.html#contact" class="nav-cta">開始對話</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+    <div class="container">
+        <h1 class="page-hero-en">Not templates.<br>A language for your brand.</h1>
+        <p class="page-hero-zh">不是模板，是為你的品牌找到對的語言</p>
+    </div>
+</section>
+
+
+<!-- ===== MANIFESTO ===== -->
+<section class="manifesto">
+    <div class="container">
+        <div class="manifesto-inner">
+            <h2>我們不是模板</h2>
+
+            <p>不同的品牌，需要不同的設計語言。</p>
+
+            <p>一個精品美妝品牌應該有<strong>書店般的從容</strong>，<br>
+            一個健身工作室應該有<strong>鋼鐵般的力量</strong>，<br>
+            一個手工陶藝家應該有<strong>木紋般的溫度</strong>。</p>
+
+            <p>Precraft 不提供「一套設計打遍所有客戶」的服務。<br>
+            我們根據你的品牌定位、客群特性、產業氛圍，<br>
+            為你選擇或混搭最適合的設計語言。</p>
+
+            <p class="breath">以下是我們能運用的風格光譜——<br>
+            但這不是菜單，是起點。</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== STYLES GRID ===== -->
+<section class="styles-section" id="styles">
+    <div class="container">
+        <div class="styles-header">
+            <p class="section-label">Style Spectrum</p>
+            <h2>六種設計語言，六種品牌氛圍</h2>
+            <p>每個風格都來自真實的產業需求，而非憑空想像。</p>
+        </div>
+
+        <div class="styles-grid">
+            <!-- Style 1: Lumiere -->
+            <div class="style-card">
+                <div class="style-visual style-visual-lumiere">
+                    <span class="style-visual-label">Lumiere</span>
+                </div>
+                <div class="style-info">
+                    <div class="style-meta">
+                        <span class="style-industry">Beauty</span>
+                    </div>
+                    <h3>優雅精品感</h3>
+                    <div class="style-name-en">Elegant &amp; Refined</div>
+                    <p class="style-desc">書店般的從容、柔和的光線、精緻的細節。適合希望傳遞高端質感與專業信任的品牌。</p>
+                    <div class="style-keywords">
+                        <span class="style-keyword">柔和色調</span>
+                        <span class="style-keyword">優雅襯線</span>
+                        <span class="style-keyword">大量留白</span>
+                    </div>
+                    <p class="style-desc" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">適合：精品美妝、個人護理、高端保養品</p>
+                    <a href="../preview/brands/lumiere.html" class="style-link" target="_blank" rel="noopener noreferrer">查看完整 preview &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Style 2: PawCare -->
+            <div class="style-card">
+                <div class="style-visual style-visual-pawcare">
+                    <span class="style-visual-label" style="color: rgba(90, 60, 30, 0.8); text-shadow: none;">PawCare</span>
+                </div>
+                <div class="style-info">
+                    <div class="style-meta">
+                        <span class="style-industry">Pet Care</span>
+                    </div>
+                    <h3>溫暖親切</h3>
+                    <div class="style-name-en">Warm &amp; Friendly</div>
+                    <p class="style-desc">溫暖的擁抱、柔軟的親密感、日常生活的幸福。適合希望傳遞安心與陪伴的品牌。</p>
+                    <div class="style-keywords">
+                        <span class="style-keyword">溫暖色調</span>
+                        <span class="style-keyword">圓潤線條</span>
+                        <span class="style-keyword">生活感</span>
+                    </div>
+                    <p class="style-desc" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">適合：寵物用品、家庭服務、親子品牌</p>
+                    <a href="../preview/brands/pawcare.html" class="style-link" target="_blank" rel="noopener noreferrer">查看完整 preview &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Style 3: IronCore -->
+            <div class="style-card">
+                <div class="style-visual style-visual-ironcore">
+                    <span class="style-visual-label">IronCore</span>
+                </div>
+                <div class="style-info">
+                    <div class="style-meta">
+                        <span class="style-industry">Fitness</span>
+                    </div>
+                    <h3>強烈動感</h3>
+                    <div class="style-name-en">Bold &amp; Dynamic</div>
+                    <p class="style-desc">鋼鐵般的力量、動態的節奏、突破極限的張力。適合希望傳遞能量與行動力的品牌。</p>
+                    <div class="style-keywords">
+                        <span class="style-keyword">強對比</span>
+                        <span class="style-keyword">粗體字型</span>
+                        <span class="style-keyword">動態構圖</span>
+                    </div>
+                    <p class="style-desc" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">適合：健身品牌、運動用品、高強度訓練服務</p>
+                    <a href="../preview/brands/ironcore.html" class="style-link" target="_blank" rel="noopener noreferrer">查看完整 preview &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Style 4: Craftland -->
+            <div class="style-card">
+                <div class="style-visual style-visual-craftland">
+                    <span class="style-visual-label">Craftland</span>
+                </div>
+                <div class="style-info">
+                    <div class="style-meta">
+                        <span class="style-industry">Handmade</span>
+                    </div>
+                    <h3>樸實匠心</h3>
+                    <div class="style-name-en">Earthy &amp; Artisan</div>
+                    <p class="style-desc">木紋般的溫度、時間累積的質感、雙手的痕跡。適合希望傳遞匠心與真實的品牌。</p>
+                    <div class="style-keywords">
+                        <span class="style-keyword">自然材質</span>
+                        <span class="style-keyword">手寫感</span>
+                        <span class="style-keyword">細膩紋理</span>
+                    </div>
+                    <p class="style-desc" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">適合：手工品牌、工藝品、職人工作室</p>
+                    <a href="../preview/brands/craftland.html" class="style-link" target="_blank" rel="noopener noreferrer">查看完整 preview &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Style 5: Aroma -->
+            <div class="style-card">
+                <div class="style-visual style-visual-aroma">
+                    <span class="style-visual-label">Aroma</span>
+                </div>
+                <div class="style-info">
+                    <div class="style-meta">
+                        <span class="style-industry">Coffee</span>
+                    </div>
+                    <h3>職人咖啡</h3>
+                    <div class="style-name-en">Artisan &amp; Warm</div>
+                    <p class="style-desc">午後陽光、咖啡豆香、安靜閱讀的角落。適合希望傳遞職人精神與日常幸福感的品牌。</p>
+                    <div class="style-keywords">
+                        <span class="style-keyword">焦糖色調</span>
+                        <span class="style-keyword">優雅襯線</span>
+                        <span class="style-keyword">工坊感</span>
+                    </div>
+                    <p class="style-desc" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">適合：精品咖啡、烘焙工坊、職人品牌</p>
+                    <a href="../preview/brands/aroma.html" class="style-link" target="_blank" rel="noopener noreferrer">查看完整 preview &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Style 6: Studio Noir -->
+            <div class="style-card">
+                <div class="style-visual style-visual-studionoir">
+                    <span class="style-visual-label" style="color: rgba(255,255,255,0.9);">Studio Noir</span>
+                </div>
+                <div class="style-info">
+                    <div class="style-meta">
+                        <span class="style-industry">Design Studio</span>
+                    </div>
+                    <h3>現代極簡</h3>
+                    <div class="style-name-en">Minimal &amp; Precise</div>
+                    <p class="style-desc">零裝飾、高對比、精準排版。適合希望用克制的設計語言展現專業態度的品牌。</p>
+                    <div class="style-keywords">
+                        <span class="style-keyword">黑白灰</span>
+                        <span class="style-keyword">無襯線</span>
+                        <span class="style-keyword">零圓角</span>
+                    </div>
+                    <p class="style-desc" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">適合：設計工作室、建築事務所、科技品牌</p>
+                    <a href="../preview/brands/studio-noir.html" class="style-link" target="blank" rel="noopener noreferrer">查看完整 preview &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== MORE SECTION ===== -->
+<section class="more-section">
+    <div class="container">
+        <div class="more-inner">
+            <p class="section-label">Beyond the Spectrum</p>
+            <h2>這只是我們能力的一部分</h2>
+
+            <p>以上 4 個是我們能運用的代表性風格。<br>
+            但設計語言的可能性遠不只這些——<br>
+            每個品牌都值得被用心理解後，再選擇最適合的表達方式。</p>
+
+            <p>如果你想看到更多風格、想跟我們討論你的品牌應該有什麼樣的設計語言，<br>
+            請預約一次 30 分鐘的免費諮詢。<br>
+            我們會根據你的品牌定位，為你展示更完整的風格光譜，<br>
+            並一起找到最適合你的方向。</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+    <div class="container">
+        <h2>預約對話，找到屬於你的語言</h2>
+        <div class="cta-buttons">
+            <a href="index.html#contact" class="btn btn-primary" style="background: var(--color-bg); color: var(--color-primary); border-color: var(--color-bg);">開始對話</a>
+            <a href="index.html" class="btn btn-outline-light">回首頁</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-brand-name">Precraft 緻作</div>
+                <p>Precraft is a brand of 銳馥薇有限公司</p>
+                <p>為認真的品牌，打造認真的網站</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+                    <a href="#" class="social-icon" aria-label="LINE"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.92 2 10.66c0 4.08 3.4 7.5 8 8.44v2.9l2.6-1.82C17.78 19.64 22 15.52 22 10.66 22 5.92 17.52 2 12 2z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>服務</h4>
+                <ul>
+                    <li><a href="index.html#features">核心優勢</a></li>
+                    <li><a href="index.html#process">工作方法</a></li>
+                    <li><a href="index.html#about">品牌故事</a></li>
+                    <li><a href="styles.html">風格</a></li>
+                    <li><a href="index.html#showcase">案例展示</a></li>
+                    <li><a href="index.html#contact">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>聯絡</h4>
+                <ul>
+                    <li><a href="#">contact@precraft.tw</a></li>
+                    <li><a href="#">週一至週五 10:00-18:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 銳馥薇有限公司 All rights reserved.</p>
+            <p>Precraft is a brand of 銳馥薇有限公司</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+    const menuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    }
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+</script>
+
+</body>
+</html>

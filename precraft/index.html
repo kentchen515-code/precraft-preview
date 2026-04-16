@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Precraft 緻作 — Crafted with intent.</title>
+    <meta name="description" content="Precraft 緻作，為認真的品牌打造合規、精準、有深度的網站。不是模板，是為你精準打造。">
+
+    <!-- Google Fonts: Cormorant Garamond + Inter + Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           Precraft 緻作 — Brand Style
+           V2: Kent 驗收回饋修正版
+           ============================================= */
+
+        :root {
+            /* Brand Colors */
+            --color-primary: #1B3A2F;
+            --color-primary-dark: #142D24;
+            --color-primary-light: #2A5443;
+            --color-accent: #B8956A;
+            --color-accent-light: #D4B896;
+            --color-bg: #F5F1E8;
+            --color-bg-alt: #EDE8DC;
+            --color-bg-white: #FFFFFF;
+            --color-text: #2B2B2B;
+            --color-text-light: #6B6B6B;
+            --color-text-muted: #999999;
+            --color-border: #E5DFD2;
+            --color-white: #FFFFFF;
+            --color-footer-bg: #111F19;
+
+            /* BIOXCIN brand color (for showcase card) */
+            --bioxcin-primary: #8B1A2E;
+            --bioxcin-primary-light: #A82438;
+
+            /* Typography */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Noto Sans TC', 'Inter', sans-serif;
+            --font-body-en: 'Inter', sans-serif;
+
+            /* Spacing */
+            --spacing-section: 120px;
+            --container-max-width: 1100px;
+            --container-padding: 24px;
+
+            /* Radius & Shadow */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-pill: 30px;
+            --shadow-sm: 0 2px 8px rgba(27, 58, 47, 0.06);
+            --shadow-md: 0 4px 20px rgba(27, 58, 47, 0.08);
+            --shadow-hover: 0 8px 30px rgba(27, 58, 47, 0.12);
+
+            /* Transition */
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            background: var(--color-bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* ===== Shared ===== */
+        .section-label {
+            font-family: var(--font-body-en);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 44px);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: 2px solid var(--color-primary);
+        }
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-text {
+            background: transparent;
+            color: var(--color-primary);
+            border: none;
+            padding: 14px 0;
+            font-weight: 500;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .btn-text:hover {
+            border-bottom-color: var(--color-primary);
+        }
+
+
+        /* ============================================
+           1. HEADER
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            transition: var(--transition);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .logo-en {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--color-primary);
+            letter-spacing: 1px;
+        }
+        .logo-zh {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--color-text-light);
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+            align-items: center;
+        }
+        .nav-menu a {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-text-light);
+            transition: var(--transition);
+        }
+        .nav-menu a:hover { color: var(--color-primary); }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 10px 24px;
+            border-radius: var(--radius-pill);
+            font-weight: 500 !important;
+        }
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-menu-toggle span {
+            width: 24px; height: 2px;
+            background: var(--color-primary);
+            transition: var(--transition);
+        }
+
+
+        /* ============================================
+           2. HERO
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: var(--color-bg);
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content { max-width: 560px; }
+
+        .hero-tagline {
+            font-family: var(--font-display);
+            font-size: clamp(42px, 6vw, 64px);
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .hero-desc {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.9;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-graphic {
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-graphic::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 70%, rgba(184,149,106,0.15) 0%, transparent 50%);
+        }
+        .hero-graphic-text {
+            position: relative;
+            z-index: 1;
+            color: var(--color-white);
+            text-align: center;
+            padding: 40px;
+        }
+        .hero-graphic-text .big {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .hero-graphic-text .small {
+            font-family: var(--font-body-en);
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+
+        /* ============================================
+           3. FEATURES
+           ============================================ */
+        .features {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg-white);
+        }
+
+        .features-header { margin-bottom: 64px; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .feature-card {
+            padding: 40px 32px;
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 修正4: Icon 升級 — 改用純 CSS 幾何線條 */
+        .feature-icon {
+            width: 48px; height: 48px;
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .feature-icon-inner {
+            width: 20px; height: 20px;
+            background: var(--color-primary);
+            border-radius: 3px;
+        }
+
+        .feature-icon-inner.circle { border-radius: 50%; }
+        .feature-icon-inner.diamond { transform: rotate(45deg); width: 16px; height: 16px; }
+        .feature-icon-inner.line {
+            width: 24px; height: 2px;
+            border-radius: 0;
+            position: relative;
+        }
+        .feature-icon-inner.line::before {
+            content: '';
+            position: absolute;
+            top: -6px; left: 4px;
+            width: 16px; height: 2px;
+            background: var(--color-primary);
+        }
+        .feature-icon-inner.line::after {
+            content: '';
+            position: absolute;
+            top: 6px; left: 8px;
+            width: 12px; height: 2px;
+            background: var(--color-primary);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+
+        /* ============================================
+           4. ABOUT
+           ============================================ */
+        .about {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg);
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-aside {
+            position: sticky;
+            top: 120px;
+        }
+
+        .about-body p {
+            font-size: 17px;
+            line-height: 2;
+            color: var(--color-text);
+            margin-bottom: 28px;
+        }
+
+        .about-body p:last-child { margin-bottom: 0; }
+
+        .about-highlight {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--color-primary);
+            line-height: 1.8;
+            border-left: 3px solid var(--color-accent);
+            padding-left: 24px;
+            margin: 40px 0;
+        }
+
+
+        /* ============================================
+           5. PROCESS
+           ============================================ */
+        .process {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg-white);
+        }
+
+        .process-header { margin-bottom: 64px; }
+
+        /* 修正5: Pre/Craft 概念說明 */
+        .process-concept {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-top: 16px;
+            max-width: 640px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        /* 修正5: Pre/Craft 分界標籤放大 */
+        .process-phase-label {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 8px;
+        }
+
+        .phase-word {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .phase-desc {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .process-step {
+            padding: 32px 28px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            background: var(--color-bg);
+            transition: var(--transition);
+        }
+        .process-step:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-number {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .step-title-en {
+            font-family: var(--font-body-en);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 4px;
+        }
+
+        .process-step h3 {
+            font-family: var(--font-body);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+
+        /* ============================================
+           6. SHOWCASE
+           ============================================ */
+        .showcase {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg);
+        }
+
+        .showcase-header { margin-bottom: 64px; }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .showcase-card {
+            background: var(--color-bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: var(--transition);
+        }
+        .showcase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .showcase-info {
+            padding: 32px;
+        }
+
+        .showcase-tag {
+            font-family: var(--font-body-en);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .showcase-info h3 {
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .showcase-info p {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .showcase-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+        .showcase-link:hover { border-bottom-color: var(--color-primary); }
+
+        .showcase-note {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            margin-top: 12px;
+        }
+
+
+        /* ============================================
+           7. CONTACT
+           ============================================ */
+        .contact {
+            padding: var(--spacing-section) 0;
+            background: var(--color-bg-white);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-text .section-subtitle { margin-bottom: 32px; }
+
+        .contact-note {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            border-left: 3px solid var(--color-accent);
+            padding-left: 20px;
+            margin-top: 24px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group label .optional {
+            font-weight: 400;
+            color: var(--color-text-muted);
+            font-size: 12px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            background: var(--color-bg);
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--color-text);
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(27, 58, 47, 0.1);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 100px; }
+
+
+        /* ============================================
+           8. FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-footer-bg);
+            color: var(--color-white);
+            padding: 60px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.6;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .footer-links h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            transition: var(--transition);
+        }
+        .footer-links a:hover { color: var(--color-accent); }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .social-icon {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        .social-icon svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 2; }
+        .social-icon:hover { background: var(--color-accent); }
+        .social-icon:hover svg { stroke: var(--color-white); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 13px;
+            opacity: 0.4;
+            line-height: 1.8;
+        }
+
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 992px) {
+            :root { --spacing-section: 96px; }
+
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hero-visual { order: -1; }
+            .hero-graphic { max-width: 320px; }
+
+            .features-grid { grid-template-columns: 1fr; gap: 24px; }
+
+            .about-layout { grid-template-columns: 1fr; gap: 40px; }
+            .about-aside { position: static; }
+
+            .process-grid { grid-template-columns: 1fr; }
+
+            .showcase-grid { grid-template-columns: 1fr; }
+
+            .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+
+            .footer-content { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --spacing-section: 72px; --container-padding: 20px; }
+
+            .nav-menu {
+                position: fixed;
+                top: 68px; left: -100%;
+                width: 100%;
+                height: calc(100vh - 68px);
+                background: var(--color-bg);
+                flex-direction: column;
+                padding: 40px;
+                transition: var(--transition);
+                gap: 0;
+                z-index: 999;
+            }
+            .nav-menu.active { left: 0; }
+            .nav-menu li { width: 100%; }
+            .nav-menu a {
+                display: block;
+                padding: 16px 0;
+                font-size: 16px;
+                border-bottom: 1px solid var(--color-border);
+            }
+            .nav-cta { margin-top: 16px; text-align: center; display: block; }
+            .mobile-menu-toggle { display: flex; }
+
+            .hero { min-height: auto; padding: 120px 0 72px; }
+            .hero-tagline { font-size: clamp(36px, 8vw, 48px); }
+            .hero-sub { font-size: clamp(20px, 4vw, 26px); }
+            .hero-buttons { flex-direction: column; align-items: flex-start; }
+
+            .section-title { font-size: clamp(28px, 6vw, 36px); }
+
+            .about-highlight { font-size: 18px; }
+
+            .form-row { grid-template-columns: 1fr; }
+
+            .footer-content { text-align: center; }
+            .social-links { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            :root { --spacing-section: 56px; --container-padding: 16px; }
+            .hero-graphic { max-width: 260px; }
+            .hero-graphic-text .big { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- ============================================
+     1. HEADER
+     修正10: 加入「品牌故事」— 空間充足,6 項 + CTA 不擁擠
+     ============================================ -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="#" class="logo">
+                <span class="logo-en">Precraft</span>
+                <span class="logo-zh">緻作</span>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="選單">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#features">服務</a></li>
+                <li><a href="#process">方法</a></li>
+                <li><a href="#about">品牌故事</a></li>
+                <li><a href="styles.html">風格</a></li>
+                <li><a href="#showcase">案例</a></li>
+                <li><a href="#contact" class="nav-cta">開始對話</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ============================================
+     2. HERO — 修正1: 重寫
+     修正4: 右側視覺區重新設計
+     ============================================ -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1 class="hero-tagline">Crafted<br>with intent.</h1>
+                <p class="hero-sub">為認真的品牌，打造認真的網站</p>
+                <p class="hero-desc">懂設計，也懂法規。<br>好的網站不該只屬於有預算的大公司。<br>Precraft 緻作，用對的方法，讓每個認真的品牌都擁有好網站。</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">開始對話</a>
+                    <a href="#process" class="btn btn-text">查看我們的方法 &rarr;</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <div class="hero-graphic-text">
+                        <span class="big">Pre</span>
+                        <span class="small">then craft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     3. FEATURES — 修正2: 第二項改寫
+     修正3: 文案精簡
+     修正4: Icon 改為純 CSS 幾何
+     ============================================ -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="features-header">
+            <p class="section-label">Why Precraft</p>
+            <h2 class="section-title">三件我們做到，<br>但多數人忽略的事</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><div class="feature-icon-inner circle"></div></div>
+                <h3>合規護城河</h3>
+                <p>懂設計，也懂你所在產業的廣告法規。每一句文案上線前，都經過合規檢核。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><div class="feature-icon-inner diamond"></div></div>
+                <h3>傳統搜尋 + AI 搜尋雙重優化</h3>
+                <p>你的客戶不只用 Google，也在用 ChatGPT、Perplexity 等 AI 工具尋找服務。我們同時為兩種搜尋方式優化你的網站。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><div class="feature-icon-inner line"></div></div>
+                <h3>深度準備</h3>
+                <p>在畫第一條線之前，先理解你的品牌、研究你的產業、確認法規邊界。準備充足後才動手。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     4. ABOUT — 修正3: 品牌故事保留較長（深度閱讀區）
+     ============================================ -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-layout">
+            <div class="about-aside">
+                <p class="section-label">Our Story</p>
+                <h2 class="section-title">為什麼<br>是 Precraft</h2>
+            </div>
+
+            <div class="about-body">
+                <p>在這個時代，每個品牌都在追求「快速上線」。但我們看過太多品牌為了趕快，付出了不該付的代價——文案不合規被開罰、網站長得像競爭對手、數據經不起客戶提問、SEO 排名像一場賭博。</p>
+
+                <p>問題不是快，是「在沒有準備好之前就動手」。</p>
+
+                <div class="about-highlight">
+                    Pre 是我們的核心——在我們 Craft 你的網站之前，我們會先把該想的事情想清楚。
+                </div>
+
+                <p>你的品牌真正想說什麼？你的客戶真正在乎什麼？你所在的產業有哪些法規邊界？你的數據可以怎麼合法地呈現？</p>
+
+                <p>這些問題不是可選的。它們是所有好網站的地基。</p>
+
+                <p>地基穩了，執行就是精準的動作，不需要拖延。</p>
+
+                <div class="about-highlight">
+                    Precraft 為認真的品牌而存在。
+                </div>
+
+                <p>我們服務的是那種「在乎每一個決策」的品牌主——你可能是小型美妝品牌、獨立醫美診所、用心做保健食品的創辦人、從歐美進口精品的代理商。</p>
+
+                <p>你們的共通點是：你們在乎。在乎每一句文案會不會被罰、每一個數據能不能站得住腳、每一個設計決策會不會顯得廉價。</p>
+
+                <p>如果你也是那種「重視每一個決策」的人，我們可能合得來。你不需要自己把所有事情想清楚——這正是我們存在的理由。</p>
+
+                <p>準備好了，我們再動手。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     5. PROCESS — 修正5: Pre/Craft 字體加大 + 概念說明
+     修正6: Step 6 重寫
+     修正3: 步驟文案精簡
+     ============================================ -->
+<section class="process" id="process">
+    <div class="container">
+        <div class="process-header">
+            <p class="section-label">How We Work</p>
+            <h2 class="section-title">Pre &rarr; Craft</h2>
+            <p class="process-concept">Pre：在我們動手之前，我們會協助你想清楚。Craft：準備充足後，我們精準執行。</p>
+        </div>
+
+        <div class="process-grid">
+            <!-- Pre Phase -->
+            <div class="process-phase-label">
+                <span class="phase-word">Pre</span>
+                <span class="phase-desc">準備階段</span>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-title-en">Understanding</div>
+                <h3>理解</h3>
+                <p>深入了解你的品牌定位、目標客群與商業目標。不急著畫圖，先把方向想清楚。</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-title-en">Research</div>
+                <h3>研究</h3>
+                <p>確認你所在產業的法規邊界、競品狀況與搜尋機會。</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-title-en">Strategy</div>
+                <h3>策略</h3>
+                <p>規劃內容架構、視覺方向與 SEO 策略。每個決定都有理由。</p>
+            </div>
+
+            <!-- Craft Phase -->
+            <div class="process-phase-label">
+                <span class="phase-word">Craft</span>
+                <span class="phase-desc">執行階段</span>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <div class="step-title-en">Design</div>
+                <h3>設計</h3>
+                <p>用模組化方法快速呈現。不是模板拼裝，是為你的品牌量身組裝的結果。</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">05</div>
+                <div class="step-title-en">Validation</div>
+                <h3>驗證</h3>
+                <p>法規審核、內容校對、技術檢查。上線前的最後把關。</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">06</div>
+                <div class="step-title-en">Delivery</div>
+                <h3>交付</h3>
+                <p>完成上線前的最終檢查：連結、表單、法規、速度、響應式。確保你拿到的網站，從第一天就是完整成品。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     6. SHOWCASE — 修正7: BIOXCIN 配色修正 + 連結
+     修正3: 文案精簡
+     ============================================ -->
+<section class="showcase" id="showcase">
+    <div class="container">
+        <div class="showcase-header">
+            <p class="section-label">Selected Work</p>
+            <h2 class="section-title">我們做過的事</h2>
+        </div>
+
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <div class="showcase-image" style="background: linear-gradient(135deg, var(--bioxcin-primary), var(--bioxcin-primary-light));">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1" fill="rgba(255,255,255,0.4)"/><circle cx="15" cy="9" r="1" fill="rgba(255,255,255,0.4)"/></svg>
+                </div>
+                <div class="showcase-info">
+                    <p class="showcase-tag">Beauty &amp; Haircare</p>
+                    <h3>BIOXCIN 台灣官網</h3>
+                    <p>土耳其專業頭皮護理品牌的台灣總代理官網。含臨床數據展示、合規聲明、多系列產品網格與完整 SEO 結構。</p>
+                    <a href="https://bioxcintw.com/index.html" class="showcase-link" target="_blank" rel="noopener noreferrer">前往查看 &rarr;</a>
+                    <p class="showcase-note">BIOXCIN 為銳馥薇有限公司旗下品牌</p>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-image" style="background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="showcase-info">
+                    <p class="showcase-tag">Your Brand Here</p>
+                    <h3>下一個專案，是你的</h3>
+                    <p>如果你是認真經營品牌的人，我們想聽聽你的故事。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     7. CONTACT — 修正9: 新增電話 + Line ID 欄位
+     修正3: 文案精簡
+     ============================================ -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-layout">
+            <div class="contact-text">
+                <p class="section-label">Get in Touch</p>
+                <h2 class="section-title">準備好了，<br>我們再動手</h2>
+                <p class="section-subtitle">你不需要自己把所有事情想清楚——這正是我們存在的理由。</p>
+                <p class="contact-note">表單送出後，我們會先安排一次 30 分鐘的諮詢，不收費。</p>
+            </div>
+
+            <form class="contact-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" placeholder="你的姓名" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">聯絡電話</label>
+                        <input type="tel" id="phone" placeholder="09xx-xxx-xxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="line">Line ID <span class="optional">(選填)</span></label>
+                        <input type="text" id="line" placeholder="你的 Line ID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="你的 Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="industry">品牌類別</label>
+                    <select id="industry" required>
+                        <option value="" disabled selected>請選擇你的產業</option>
+                        <option>美妝保養</option>
+                        <option>醫美診所</option>
+                        <option>保健食品</option>
+                        <option>寵物用品</option>
+                        <option>設計 / 創意工作室</option>
+                        <option>餐飲 / 咖啡</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">簡短描述你的需求</label>
+                    <textarea id="message" placeholder="例如：我們是一個小型美妝品牌，想建立官方網站..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">送出諮詢</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     8. FOOTER — 修正8: 確認公司聲明完整
+     ============================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-brand-name">Precraft 緻作</div>
+                <p>Precraft is a brand of 銳馥薇有限公司</p>
+                <p>為認真的品牌，打造認真的網站</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+                    <a href="#" class="social-icon" aria-label="LINE"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.92 2 10.66c0 4.08 3.4 7.5 8 8.44v2.9l2.6-1.82C17.78 19.64 22 15.52 22 10.66 22 5.92 17.52 2 12 2z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>服務</h4>
+                <ul>
+                    <li><a href="#features">核心優勢</a></li>
+                    <li><a href="#process">工作方法</a></li>
+                    <li><a href="#about">品牌故事</a></li>
+                    <li><a href="styles.html">風格</a></li>
+                    <li><a href="#showcase">案例展示</a></li>
+                    <li><a href="#contact">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>聯絡</h4>
+                <ul>
+                    <li><a href="#">contact@precraft.tw</a></li>
+                    <li><a href="#">週一至週五 10:00-18:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 銳馥薇有限公司 All rights reserved.</p>
+            <p>Precraft is a brand of 銳馥薇有限公司</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+    const menuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    }
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+</script>
+
+</body>
+</html>
