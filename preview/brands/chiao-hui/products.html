@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服務項目 — 巧慧美髮工作室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #8B4D6B;
+    --primary-dark: #6E3A54;
+    --primary-light: #A8668A;
+    --accent: #C9A84C;
+    --bg: #FFFFFF;
+    --bg-alt: #FAF7F2;
+    --bg-warm: #F5F0EA;
+    --text: #2C2C2C;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --border: #E8E0D8;
+    --white: #FFFFFF;
+    --footer-bg: #2C1A24;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+    --font-serif: 'Noto Serif TC', serif;
+    --transition: all 0.3s ease;
+    --radius: 8px;
+    --container: 1200px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); line-height: 1.7; background: var(--bg); -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid transparent; transition: var(--transition); height: 72px; display: flex; align-items: center; }
+.nav.scrolled { border-bottom-color: var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--primary); }
+.nav-logo small { font-family: var(--font-body); font-size: 11px; color: var(--text-light); display: block; letter-spacing: 1px; margin-top: -2px; }
+.nav-menu { display: flex; list-style: none; gap: 32px; align-items: center; }
+.nav-menu a { font-size: 14px; color: var(--text-light); transition: var(--transition); }
+.nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+.nav-cta { background: var(--primary); color: var(--white) !important; padding: 10px 24px; border-radius: 24px; font-weight: 500; }
+.nav-cta:hover { background: var(--primary-dark); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.menu-toggle span { width: 22px; height: 2px; background: var(--primary); }
+
+/* PAGE HERO */
+.page-hero { padding: 140px 0 80px; background: var(--bg-alt); text-align: center; }
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 52px); font-weight: 600; color: var(--text); margin-bottom: 12px; }
+.page-hero p { font-size: 17px; color: var(--text-light); }
+
+/* SERVICE GROUPS */
+.service-group { padding: 80px 0; }
+.service-group + .service-group { border-top: 1px solid var(--border); }
+.sg-header { margin-bottom: 48px; }
+.sg-header h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 36px); font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.sg-header p { font-size: 15px; color: var(--text-light); }
+.sg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.sg-card { padding: 32px; background: var(--bg-alt); border-radius: var(--radius); transition: var(--transition); }
+.sg-card:hover { box-shadow: 0 4px 16px rgba(139,77,107,0.08); }
+.sg-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+.sg-card p { font-size: 15px; color: var(--text-light); line-height: 1.8; }
+
+/* CTA */
+.cta { padding: 80px 0; background: var(--primary); text-align: center; }
+.cta h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 40px); font-weight: 600; color: var(--white); margin-bottom: 16px; }
+.cta p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-size: 15px; font-weight: 500; border-radius: 28px; transition: var(--transition); cursor: pointer; border: 1.5px solid transparent; font-family: var(--font-body); }
+.cta .btn { background: var(--white); color: var(--primary); border-color: var(--white); }
+.cta .btn:hover { background: rgba(255,255,255,0.9); }
+
+/* FOOTER */
+.footer { background: var(--footer-bg); color: var(--white); padding: 48px 0 24px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+.footer-brand { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.footer p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 8px; }
+.footer a { font-size: 13px; color: rgba(255,255,255,0.4); transition: var(--transition); }
+.footer a:hover { color: var(--accent); }
+.footer h4 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+.footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); }
+
+@media (max-width: 768px) {
+    .nav-menu { position: fixed; top: 72px; left: -100%; width: 100%; height: calc(100vh - 72px); background: var(--bg); flex-direction: column; padding: 40px; transition: var(--transition); gap: 0; z-index: 999; }
+    .nav-menu.active { left: 0; }
+    .nav-menu a { display: block; padding: 16px 0; font-size: 16px; border-bottom: 1px solid var(--border); }
+    .nav-cta { margin-top: 16px; text-align: center; display: block; }
+    .menu-toggle { display: flex; }
+    .page-hero { padding: 110px 0 60px; }
+    .sg-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">巧慧<small>美髮工作室</small></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="選單"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="products.html" class="active">服務項目</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+                <li><a href="contact.html" class="nav-cta">立即預約</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>服務項目</h1>
+        <p>從日常打理到特別日子的造型，巧慧都能為你用心準備。</p>
+    </div>
+</section>
+
+<section class="service-group">
+    <div class="container">
+        <div class="sg-header">
+            <h2>基礎美髮服務</h2>
+            <p>每一次的剪洗，都是一次讓自己更好的機會。</p>
+        </div>
+        <div class="sg-grid">
+            <div class="sg-card">
+                <h3>女士剪髮</h3>
+                <p>根據你的臉型、髮質和日常造型習慣，量身設計適合的長度與層次。包含洗髮、剪髮、造型吹整。</p>
+            </div>
+            <div class="sg-card">
+                <h3>男士剪髮</h3>
+                <p>俐落有型，快速不等待。從商務正式到休閒個性，找到最適合你的風格。包含洗髮、剪髮。</p>
+            </div>
+            <div class="sg-card">
+                <h3>兒童剪髮</h3>
+                <p>溫柔有耐心，讓小朋友不害怕剪頭髮。輕鬆愉快的氛圍，爸媽也能放心坐在旁邊。</p>
+            </div>
+            <div class="sg-card">
+                <h3>洗髮</h3>
+                <p>不只是清潔，更是一段放鬆的時光。搭配頭皮按摩，舒緩一天的疲勞。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-group">
+    <div class="container">
+        <div class="sg-header">
+            <h2>燙染護理</h2>
+            <p>用溫和的配方，打造持久的美麗。</p>
+        </div>
+        <div class="sg-grid">
+            <div class="sg-card">
+                <h3>燙髮</h3>
+                <p>冷燙、溫塑燙、離子燙，依據你的髮質和期望效果，選擇最合適的方式。包含護髮後處理。</p>
+            </div>
+            <div class="sg-card">
+                <h3>染髮</h3>
+                <p>全染、挑染、補染，使用低氨溫和配方。提供專業色彩建議，讓膚色更顯亮。</p>
+            </div>
+            <div class="sg-card">
+                <h3>護髮</h3>
+                <p>深層修護、角蛋白護理、髮膜保養。針對受損髮質，恢復柔順光澤。</p>
+            </div>
+            <div class="sg-card">
+                <h3>頭皮護理</h3>
+                <p>專業頭皮檢測與清潔護理，改善出油、乾癢、敏感等問題。健康的頭皮是好髮質的基礎。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-group">
+    <div class="container">
+        <div class="sg-header">
+            <h2>造型設計</h2>
+            <p>人生的重要時刻，讓巧慧陪你美美出場。</p>
+        </div>
+        <div class="sg-grid">
+            <div class="sg-card">
+                <h3>新娘造型</h3>
+                <p>從婚前試妝到當天造型，全程細心打理。包含髮型設計、飾品搭配建議，讓你在最重要的日子閃耀。</p>
+            </div>
+            <div class="sg-card">
+                <h3>宴會 / 特殊場合</h3>
+                <p>尾牙、聚會、畢業典禮、重要面試⋯⋯任何需要好好打扮的日子，我們都能為你準備。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>找到你需要的服務了嗎？</h2>
+        <p>歡迎來電或 Line 預約，我們會為你安排最適合的時段。</p>
+        <a href="contact.html" class="btn">立即預約 &rarr;</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">巧慧美髮工作室</div>
+                <p>用心打理，讓美從日常開始</p>
+            </div>
+            <div>
+                <h4>服務項目</h4>
+                <ul>
+                    <li><a href="products.html">剪髮</a></li>
+                    <li><a href="products.html">燙染護理</a></li>
+                    <li><a href="products.html">造型設計</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>快速連結</h4>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 巧慧美髮工作室 All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10));
+const t=document.getElementById('menuToggle'),m=document.getElementById('navMenu');if(t&&m){t.addEventListener('click',()=>m.classList.toggle('active'));}
+document.querySelectorAll('.nav-menu a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('active')));
+</script>
+</body>
+</html>

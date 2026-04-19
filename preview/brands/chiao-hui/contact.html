@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯絡我們 — 巧慧美髮工作室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #8B4D6B;
+    --primary-dark: #6E3A54;
+    --accent: #C9A84C;
+    --bg: #FFFFFF;
+    --bg-alt: #FAF7F2;
+    --text: #2C2C2C;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --border: #E8E0D8;
+    --white: #FFFFFF;
+    --footer-bg: #2C1A24;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+    --transition: all 0.3s ease;
+    --radius: 8px;
+    --container: 1200px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); line-height: 1.7; background: var(--bg); -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid transparent; transition: var(--transition); height: 72px; display: flex; align-items: center; }
+.nav.scrolled { border-bottom-color: var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--primary); }
+.nav-logo small { font-family: var(--font-body); font-size: 11px; color: var(--text-light); display: block; letter-spacing: 1px; margin-top: -2px; }
+.nav-menu { display: flex; list-style: none; gap: 32px; align-items: center; }
+.nav-menu a { font-size: 14px; color: var(--text-light); transition: var(--transition); }
+.nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+.nav-cta { background: var(--primary); color: var(--white) !important; padding: 10px 24px; border-radius: 24px; font-weight: 500; }
+.nav-cta:hover { background: var(--primary-dark); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.menu-toggle span { width: 22px; height: 2px; background: var(--primary); }
+
+.page-hero { padding: 140px 0 80px; background: var(--bg-alt); text-align: center; }
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 52px); font-weight: 600; color: var(--text); margin-bottom: 12px; }
+.page-hero p { font-size: 17px; color: var(--text-light); max-width: 480px; margin: 0 auto; line-height: 1.8; }
+
+.contact-section { padding: 80px 0; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.contact-info h2 { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--text); margin-bottom: 24px; }
+.contact-info p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 32px; }
+.info-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+.info-icon { width: 40px; height: 40px; background: var(--bg-alt); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0; }
+.info-text h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.info-text p { font-size: 14px; color: var(--text-light); margin: 0; }
+
+.contact-form h2 { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--text); margin-bottom: 24px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--bg-alt); font-family: var(--font-body);
+    font-size: 15px; color: var(--text); transition: var(--transition);
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139,77,107,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-size: 15px; font-weight: 500; border-radius: 28px; transition: var(--transition); cursor: pointer; border: none; font-family: var(--font-body); }
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-primary:hover { background: var(--primary-dark); }
+.form-note { font-size: 13px; color: var(--text-muted); margin-top: 12px; line-height: 1.7; }
+
+.footer { background: var(--footer-bg); color: var(--white); padding: 48px 0 24px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+.footer-brand { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.footer p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 8px; }
+.footer a { font-size: 13px; color: rgba(255,255,255,0.4); transition: var(--transition); }
+.footer a:hover { color: var(--accent); }
+.footer h4 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+.footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); }
+
+@media (max-width: 768px) {
+    .nav-menu { position: fixed; top: 72px; left: -100%; width: 100%; height: calc(100vh - 72px); background: var(--bg); flex-direction: column; padding: 40px; transition: var(--transition); gap: 0; z-index: 999; }
+    .nav-menu.active { left: 0; }
+    .nav-menu a { display: block; padding: 16px 0; font-size: 16px; border-bottom: 1px solid var(--border); }
+    .nav-cta { margin-top: 16px; text-align: center; display: block; }
+    .menu-toggle { display: flex; }
+    .page-hero { padding: 110px 0 60px; }
+    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+    .footer-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">巧慧<small>美髮工作室</small></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="選單"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="products.html">服務項目</a></li>
+                <li><a href="contact.html" class="active">聯絡我們</a></li>
+                <li><a href="contact.html" class="nav-cta">立即預約</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>聯絡我們</h1>
+        <p>想預約服務或有任何問題，歡迎隨時聯繫。我們很樂意為你安排最適合的時段。</p>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-layout">
+            <div class="contact-info">
+                <h2>隨時歡迎你</h2>
+                <p>不確定想要什麼造型也沒關係，坐下來聊聊，我們一起找到最適合你的樣子。</p>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4>電話預約</h4>
+                        <p>歡迎來電預約，我們會為你安排時段</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4>Line 預約</h4>
+                        <p>也可以加我們的 Line，傳訊息預約更方便</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4>營業時間</h4>
+                        <p>請來電或 Line 確認當日營業時段</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>線上預約</h2>
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" placeholder="你的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話</label>
+                        <input type="tel" id="phone" placeholder="聯絡電話">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">想預約的服務</label>
+                        <input type="text" id="service" placeholder="例如：女士剪髮、染髮">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">其他想說的</label>
+                        <textarea id="message" placeholder="偏好的時段、特殊需求等，都可以先告訴我們"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">送出預約</button>
+                    <p class="form-note">送出後我們會盡快回覆確認時段。表單目前為展示用途。</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">巧慧美髮工作室</div>
+                <p>用心打理，讓美從日常開始</p>
+            </div>
+            <div>
+                <h4>快速連結</h4>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="products.html">服務項目</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 巧慧美髮工作室 All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10));
+const t=document.getElementById('menuToggle'),m=document.getElementById('navMenu');if(t&&m){t.addEventListener('click',()=>m.classList.toggle('active'));}
+document.querySelectorAll('.nav-menu a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('active')));
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巧慧美髮工作室 — 用心打理，讓美從日常開始</title>
+<meta name="description" content="巧慧美髮工作室，親民的家庭美容院。提供剪髮、燙髮、染髮、護髮、頭皮護理、新娘造型等全方位美髮服務。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #8B4D6B;
+    --primary-dark: #6E3A54;
+    --primary-light: #A8668A;
+    --accent: #C9A84C;
+    --bg: #FFFFFF;
+    --bg-alt: #FAF7F2;
+    --bg-warm: #F5F0EA;
+    --text: #2C2C2C;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --border: #E8E0D8;
+    --white: #FFFFFF;
+    --footer-bg: #2C1A24;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+    --font-serif: 'Noto Serif TC', serif;
+    --transition: all 0.3s ease;
+    --radius: 8px;
+    --container: 1200px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); line-height: 1.7; background: var(--bg); -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid transparent; transition: var(--transition); height: 72px; display: flex; align-items: center; }
+.nav.scrolled { border-bottom-color: var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--primary); }
+.nav-logo small { font-family: var(--font-body); font-size: 11px; color: var(--text-light); display: block; letter-spacing: 1px; margin-top: -2px; }
+.nav-menu { display: flex; list-style: none; gap: 32px; align-items: center; }
+.nav-menu a { font-size: 14px; color: var(--text-light); transition: var(--transition); }
+.nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+.nav-cta { background: var(--primary); color: var(--white) !important; padding: 10px 24px; border-radius: 24px; font-weight: 500; }
+.nav-cta:hover { background: var(--primary-dark); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.menu-toggle span { width: 22px; height: 2px; background: var(--primary); }
+
+/* HERO */
+.hero { min-height: 100vh; min-height: max(100vh, 640px); display: flex; align-items: center; background: var(--bg-alt); position: relative; overflow: hidden; }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hero-eyebrow { font-family: var(--font-display); font-size: 14px; color: var(--accent); letter-spacing: 2px; margin-bottom: 16px; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); font-weight: 600; color: var(--text); line-height: 1.15; margin-bottom: 24px; }
+.hero-sub { font-size: 17px; color: var(--text-light); line-height: 1.8; margin-bottom: 40px; max-width: 480px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-size: 15px; font-weight: 500; border-radius: 28px; transition: var(--transition); cursor: pointer; border: 1.5px solid transparent; font-family: var(--font-body); }
+.btn-primary { background: var(--primary); color: var(--white); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--primary); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--primary); }
+/* TODO: 等 Gemini 額度恢復後替換色塊 */
+.hero-visual { aspect-ratio: 4/5; border-radius: 200px 200px 16px 16px; overflow: hidden; background: linear-gradient(160deg, var(--primary) 0%, var(--accent) 50%, var(--bg-alt) 100%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 40px; }
+.hero-visual-text { font-family: var(--font-display); font-size: 18px; color: rgba(255,255,255,0.5); font-style: italic; }
+
+/* FEATURES */
+.features { padding: 100px 0; background: var(--bg); }
+.section-header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
+.section-eyebrow { font-family: var(--font-display); font-size: 13px; color: var(--accent); letter-spacing: 2px; margin-bottom: 12px; }
+.section-header h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 40px); font-weight: 600; color: var(--text); margin-bottom: 12px; line-height: 1.2; }
+.section-header p { font-size: 16px; color: var(--text-light); line-height: 1.8; }
+.features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.feature-card { text-align: center; padding: 32px 20px; background: var(--bg-alt); border-radius: var(--radius); transition: var(--transition); }
+.feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(139,77,107,0.1); }
+.feature-icon { width: 48px; height: 48px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: var(--primary); }
+.feature-card h3 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.feature-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+/* SERVICES PREVIEW */
+.services-preview { padding: 100px 0; background: var(--bg-alt); }
+.sp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sp-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); }
+.sp-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(139,77,107,0.08); }
+.sp-img { height: 180px; background: var(--bg-warm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; border-bottom: 1px solid var(--border); }
+.sp-info { padding: 24px; }
+.sp-info h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.sp-info p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+.sp-more { text-align: center; margin-top: 48px; }
+
+/* CTA */
+.cta { padding: 100px 0; background: var(--primary); text-align: center; position: relative; overflow: hidden; }
+.cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); opacity: 0.5; }
+.cta-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+.cta h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+.cta p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 40px; line-height: 1.7; }
+.cta .btn-primary { background: var(--white); color: var(--primary); border-color: var(--white); }
+.cta .btn-primary:hover { background: rgba(255,255,255,0.9); }
+
+/* FOOTER */
+.footer { background: var(--footer-bg); color: var(--white); padding: 64px 0 32px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+.footer-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+.footer h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px; color: rgba(255,255,255,0.8); }
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 10px; }
+.footer a { font-size: 13px; color: rgba(255,255,255,0.5); transition: var(--transition); }
+.footer a:hover { color: var(--accent); }
+.footer-info { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* RWD */
+@media (max-width: 1024px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .nav-menu { position: fixed; top: 72px; left: -100%; width: 100%; height: calc(100vh - 72px); background: var(--bg); flex-direction: column; padding: 40px; transition: var(--transition); gap: 0; z-index: 999; }
+    .nav-menu.active { left: 0; }
+    .nav-menu a { display: block; padding: 16px 0; font-size: 16px; border-bottom: 1px solid var(--border); }
+    .nav-cta { margin-top: 16px; text-align: center; display: block; }
+    .menu-toggle { display: flex; }
+    .hero { min-height: auto; padding: 100px 0 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { max-width: 300px; margin: 0 auto; order: -1; }
+    .hero-actions { flex-direction: column; }
+    .btn { justify-content: center; }
+    .features-grid { grid-template-columns: 1fr; }
+    .sp-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">巧慧<small>美髮工作室</small></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="選單"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">首頁</a></li>
+                <li><a href="products.html">服務項目</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+                <li><a href="contact.html" class="nav-cta">立即預約</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div>
+                <p class="hero-eyebrow">Your Neighborhood Hair Studio</p>
+                <h1>用心打理，<br>讓美從日常開始</h1>
+                <p class="hero-sub">巧慧美髮工作室，是社區裡最讓人安心的美髮空間。不追求華麗，只在乎每一位客人走出門時，對自己更滿意一點。</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary">預約服務</a>
+                    <a href="products.html" class="btn btn-outline">查看服務項目</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <span class="hero-visual-text">Chiao Hui</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Why Chiao Hui</p>
+            <h2>為什麼客人都成了朋友</h2>
+            <p>巧慧不只是一間美髮店，是你可以放鬆聊天、安心交託的地方。</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <h3>像朋友一樣聊</h3>
+                <p>每位客人都不趕時間，坐下來慢慢聊你想要的樣子。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <h3>不等待的預約制</h3>
+                <p>預約制服務，到了就開始，不用排隊浪費你的時間。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>安心的產品選擇</h3>
+                <p>堅持使用溫和配方的美髮產品，敏感頭皮也能安心。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <h3>社區裡的老朋友</h3>
+                <p>深耕在地多年，很多客人從小朋友剪到上大學。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-preview">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Services</p>
+            <h2>我們的服務</h2>
+            <p>從日常的剪洗到特別日子的造型，巧慧都能為你打理。</p>
+        </div>
+        <div class="sp-grid">
+            <div class="sp-card">
+                <div class="sp-img">剪髮</div>
+                <div class="sp-info">
+                    <h3>剪髮</h3>
+                    <p>男士、女士、兒童都歡迎。根據你的臉型、髮質和生活風格，找到最適合的長度和層次。</p>
+                </div>
+            </div>
+            <div class="sp-card">
+                <div class="sp-img">燙染護理</div>
+                <div class="sp-info">
+                    <h3>燙染護理</h3>
+                    <p>使用溫和配方，燙後柔順不毛躁、染後顯色不傷髮。護髮療程讓受損髮絲重獲光澤。</p>
+                </div>
+            </div>
+            <div class="sp-card">
+                <div class="sp-img">造型設計</div>
+                <div class="sp-info">
+                    <h3>造型設計</h3>
+                    <p>新娘造型、宴會髮型、重要場合的完美打理。提前溝通，確保當天的你是最美的樣子。</p>
+                </div>
+            </div>
+        </div>
+        <div class="sp-more">
+            <a href="products.html" class="btn btn-outline">查看完整服務項目 &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>準備好讓自己煥然一新了嗎？</h2>
+            <p>預約不用等，到了就開始。歡迎來巧慧坐坐，聊聊你想要的樣子。</p>
+            <a href="contact.html" class="btn btn-primary">立即預約</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">巧慧美髮工作室</div>
+                <p class="footer-desc">親民的家庭美容院<br>用心打理，讓美從日常開始</p>
+            </div>
+            <div>
+                <h4>服務項目</h4>
+                <ul>
+                    <li><a href="products.html">剪髮</a></li>
+                    <li><a href="products.html">燙髮 / 染髮</a></li>
+                    <li><a href="products.html">護髮 / 頭皮護理</a></li>
+                    <li><a href="products.html">造型設計</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>網站導覽</h4>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="products.html">服務項目</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>聯絡資訊</h4>
+                <p class="footer-info">歡迎來電或 Line 預約<br>營業時間請來電確認</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 巧慧美髮工作室 All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10));
+const t=document.getElementById('menuToggle'),m=document.getElementById('navMenu');
+if(t&&m){t.addEventListener('click',()=>m.classList.toggle('active'));}
+document.querySelectorAll('.nav-menu a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('active')));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h==='#')return;const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+</script>
+</body>
+</html>
