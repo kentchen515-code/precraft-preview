@@ -63,9 +63,8 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-1px); }
 .btn-outline { background: transparent; color: var(--primary); border-color: var(--border); }
 .btn-outline:hover { border-color: var(--primary); }
-/* TODO: 等 Gemini 額度恢復後替換色塊 */
-.hero-visual { aspect-ratio: 4/5; border-radius: 200px 200px 16px 16px; overflow: hidden; background: linear-gradient(160deg, var(--primary) 0%, var(--accent) 50%, var(--bg-alt) 100%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 40px; }
-.hero-visual-text { font-family: var(--font-display); font-size: 18px; color: rgba(255,255,255,0.5); font-style: italic; }
+.hero-visual { aspect-ratio: 4/5; border-radius: 200px 200px 16px 16px; overflow: hidden; }
+.hero-visual img { width: 100%; height: 100%; object-fit: cover; }
 
 /* FEATURES */
 .features { padding: 100px 0; background: var(--bg); }
@@ -85,7 +84,8 @@ img { max-width: 100%; height: auto; display: block; }
 .sp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .sp-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); }
 .sp-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(139,77,107,0.08); }
-.sp-img { height: 180px; background: var(--bg-warm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; border-bottom: 1px solid var(--border); }
+.sp-img { height: 180px; overflow: hidden; border-bottom: 1px solid var(--border); }
+.sp-img img { width: 100%; height: 100%; object-fit: cover; }
 .sp-info { padding: 24px; }
 .sp-info h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .sp-info p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
@@ -165,7 +165,7 @@ img { max-width: 100%; height: auto; display: block; }
                 </div>
             </div>
             <div class="hero-visual">
-                <span class="hero-visual-text">Chiao Hui</span>
+                <img src="images/hero.jpg" alt="巧慧美髮工作室：精緻編織髮辮">
             </div>
         </div>
     </div>
@@ -212,21 +212,21 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
         <div class="sp-grid">
             <div class="sp-card">
-                <div class="sp-img">剪髮</div>
+                <div class="sp-img"><img src="images/cutting.jpg" alt="剪髮服務" loading="lazy"></div>
                 <div class="sp-info">
                     <h3>剪髮</h3>
                     <p>男士、女士、兒童都歡迎。根據你的臉型、髮質和生活風格，找到最適合的長度和層次。</p>
                 </div>
             </div>
             <div class="sp-card">
-                <div class="sp-img">燙染護理</div>
+                <div class="sp-img"><img src="images/coloring.jpg" alt="燙染護理" loading="lazy"></div>
                 <div class="sp-info">
                     <h3>燙染護理</h3>
                     <p>使用溫和配方，燙後柔順不毛躁、染後顯色不傷髮。護髮療程讓受損髮絲重獲光澤。</p>
                 </div>
             </div>
             <div class="sp-card">
-                <div class="sp-img">造型設計</div>
+                <div class="sp-img"><img src="images/styling.jpg" alt="造型設計" loading="lazy"></div>
                 <div class="sp-info">
                     <h3>造型設計</h3>
                     <p>新娘造型、宴會髮型、重要場合的完美打理。提前溝通，確保當天的你是最美的樣子。</p>
