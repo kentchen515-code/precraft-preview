@@ -1,7 +1,7 @@
 # 打樣交付說明 — 巧慧美髮工作室
 
 ## 預覽網址
-https://kentchen515-code.github.io/precraft-preview/preview/brands/chiao-hui/
+https://precraft-studio.github.io/precraft-preview/preview/brands/chiao-hui/
 
 ## 打樣頁面
 - 首頁：index.html
